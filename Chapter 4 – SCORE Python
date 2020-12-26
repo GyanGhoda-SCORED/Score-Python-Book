@@ -1,0 +1,168 @@
+playAgain = True
+
+#*************************
+#Chapter 1 Code Start Here
+#*************************
+
+#Print instructions for Tic-Tac-Toe
+print("Instructions:") 
+print("------ You will use the numbers 1 - 9 as keys for this game. So as an example if you input 1 you're move would go in box number------")
+print(" | 1 | 2 | 3 | ")
+print(" | 4 | 5 | 6 | ")
+print(" | 7 | 8 | 9 | ")
+#*************************
+#Chapter 2 Code Start Here
+#*************************
+
+#Asks user to start playing
+startPlaying = input("Would you like to start playing now? Please enter - yes: ") 
+
+#*************************
+#Chapter 3 Code Start Here
+#*************************
+startPlaying = startPlaying.lower()
+if(startPlaying == "yes"):
+  #Play again loop
+  while(playAgain):
+      #Dictionary for our gameboard
+      gameboard = {"1": "-", "2": "-", "3": "-",
+                  "4": "-", "5": "-", "6": "-",
+                  "7": "-", "8": "-", "9": "-" } 
+      #hasPlayerWon variable
+      hasPlayerWon = False
+      #move variable
+      move = 0  
+      #turn variable
+      turn = "X" 
+      #user_entries variable
+      user_entries = "" 
+
+      print("Good luck to both of you!")  
+      print("Player1 will be X and Player2 O")
+      print("Ok Player1 you will go first")
+      
+      #while loop
+      while(move < 9):
+        #Records the turn by the player
+        if(turn == "X"):
+          playerMove = input("Player1 (X): What is your move? Enter number between 1 to 9: ")
+        else:
+          playerMove = input("Player2 (O): What is your move? Enter number between 1 to 9: ")  
+
+        #Checks if the move has been done before 
+        if(playerMove in user_entries):
+          print("There is already a move on that square. Please choose an empty square")
+          continue
+        else:
+          user_entries = user_entries + playerMove
+        
+        #Checks if the move is a valid move                    
+        if(playerMove == "1" or playerMove == "2" or playerMove == "3" or playerMove == "4" or playerMove == "5" or playerMove == "6" or playerMove == "7" or playerMove == "8" or playerMove == "9"):         
+          gameboard[playerMove] = turn
+          print(" | " + gameboard["1"] + " | " + gameboard["2"] + " | " + gameboard["3"] + " | ")
+          print(" | " + gameboard["4"] + " | " + gameboard["5"] + " | " + gameboard["6"] + " | ")
+          print(" | " + gameboard["7"] + " | " + gameboard["8"] + " | " + gameboard["9"] + " | ") 
+        else:
+          print ("Not a valid entry. Please enter between 1 to 9")
+          continue
+
+        if(gameboard["1"] == "X" and gameboard["2"] == "X" and gameboard["3"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break
+        
+        if(gameboard["1"] == "O" and gameboard["2"] == "O" and gameboard["3"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break
+        
+        if(gameboard["4"] == "X" and gameboard["5"] == "X" and gameboard["6"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break
+        
+        if(gameboard["4"] == "O" and gameboard["5"] == "O" and gameboard["6"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break  
+      
+        if(gameboard["7"] == "X" and gameboard["8"] == "X" and gameboard["9"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break          
+        
+        if(gameboard["7"] == "O" and gameboard["8"] == "O" and gameboard["9"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break    
+      
+        if(gameboard["1"] == "X" and gameboard["4"] == "X" and gameboard["7"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break
+      
+        if(gameboard["1"] == "O" and gameboard["4"] == "O" and gameboard["7"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break
+      
+        if(gameboard["2"] == "X" and gameboard["5"] == "X" and gameboard["8"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break  
+      
+        if(gameboard["2"] == "O" and gameboard["5"] == "O" and gameboard["8"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break
+
+        if(gameboard["3"] == "X" and gameboard["6"] == "X" and gameboard["9"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break  
+      
+        if(gameboard["3"] == "O" and gameboard["6"] == "O" and gameboard["9"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break
+      
+        if(gameboard["3"] == "X" and gameboard["5"] == "X" and gameboard["7"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break      
+      
+        if(gameboard["3"] == "O" and gameboard["5"] == "O" and gameboard["7"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break
+      
+        if(gameboard["1"] == "X" and gameboard["5"] == "X" and gameboard["9"] == "X"):
+          hasPlayerWon = True
+          print("Player1 has won the game")
+          break  
+      
+        if(gameboard["1"] == "O" and gameboard["5"] == "O" and gameboard["9"] == "O"):
+          hasPlayerWon = True
+          print("Player2 has won the game")
+          break          
+
+        move = move + 1
+          
+        if(turn == "X"):
+          turn = "O"
+        else:
+          turn = "X"
+        
+      if(hasPlayerWon):
+        hasPlayerWon = False
+      else:
+        print("The game ended in a tie")
+        
+      willPlayAgain = input("Would you like to play again? ")
+        
+      if(willPlayAgain == "yes"):
+        playAgain = True
+      else:
+        print("Thanks for Playing!")
+        playAgain = False
+
