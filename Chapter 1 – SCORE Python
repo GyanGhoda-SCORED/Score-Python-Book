@@ -1,0 +1,10 @@
+#*************************
+#Chapter 1 Code Start Here
+#*************************
+
+#Print instructions for Tic-Tac-Toe
+print("Instructions:") 
+print("------ You will use the numbers 1 - 9 as keys for this game. So as an example if you input 1 you're move would go in box number------")
+print(" | 1 | 2 | 3 | ")
+print(" | 4 | 5 | 6 | ")
+print(" | 7 | 8 | 9 | ")
